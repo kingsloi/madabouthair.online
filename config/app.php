@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Canvas',
+    'name' => 'madabouthair.online',
 
     /*
     |--------------------------------------------------------------------------
@@ -226,6 +226,7 @@ return [
         'Excel'         => Maatwebsite\Excel\Facades\Excel::class,
         'Settings'      => Canvas\Models\Settings::class,
         'Ekko' => Laravelista\Ekko\Facades\Ekko::class,
+        'Carbon' => 'Carbon\Carbon'
 
     ],
 
