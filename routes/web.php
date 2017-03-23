@@ -13,4 +13,4 @@
 
 Route::get('/', 'PageController@index')->name('canvas.home');
 
-Route::get('/contact', 'PageController@index');
+Route::get('/contact', 'PageController@contact');

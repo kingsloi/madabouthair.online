@@ -17,4 +17,9 @@ class PageController extends Controller
 
         return view('home', compact('latest','hair'));
     }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }
