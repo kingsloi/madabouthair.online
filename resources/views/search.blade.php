@@ -1,5 +1,9 @@
 @extends('canvas::frontend.layout')
 
+@section('title')
+Search NWI-Based Hair Stylist Maddie Raspe's Blog
+@stop
+
 @section('content')
 
     <div class="container-fluid">

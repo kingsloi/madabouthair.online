@@ -1,5 +1,7 @@
 @extends('canvas::frontend.layout')
 
+@section('title', 'Contact | ' . \Canvas\Models\Settings::blogTitle())
+
 @section('content')
 
     <div class="container-fluid">
@@ -9,7 +11,7 @@
 
             <div class="clearfix">
                 <div class="contact__info">
-                    <p>You can contact Maddie on:</p>
+                    <p class="lead col-lg-6 px-0">Whether you're looking for a new hair stylist, need to solve a hair dilemma, or want a consultation about onsite wedding (or other special occasion) hairdressing, I'd love to hear from you!</p>
                     <ul>
                         <li>
                             <a href="https://facebook.com/madeline.raspe">
@@ -52,6 +54,16 @@
                             </a>
                         </li>
                     </ul>
+
+                    <div class="accepting">
+                        <h2>Accepting:</h2>
+                        <div class="cards">
+                            <i class="fa fa-cc-visa" aria-hidden="true"></i>
+                            <i class="fa fa-cc-mastercard" aria-hidden="true"></i>
+                            <i class="fa fa-cc-amex" aria-hidden="true"></i>
+                            <i class="fa fa-cc-discover" aria-hidden="true"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -41,7 +41,7 @@
             @endphp
             <h2><abbr title="Northwest Indiana">NWI</abbr>-based hair stylist Maddie Raspe is a beauty expert with over {{ $today->diffInYears($since) }} years of experience. Maddie is passionate about creating stunning looks and uncovering gorgeous hair.</h2>
 
-            <a href="/contact-madeline-raspe" class="btn btn-primary">Schedule an Appointment Today <i class="fa fa-calendar" aria-hidden="true"></i></a>
+            <a href="/contact-maddie-raspe" class="btn btn-primary">Schedule an Appointment Today <i class="fa fa-calendar" aria-hidden="true"></i></a>
         </section>
 
     </div>
@@ -58,9 +58,14 @@
                 <h2>DIY</h2>
             </a>
         </div>
-        <div class="category category--beauty">
+        <div class="category category--photoshoots">
             <a class="category__link" href="#">
-                <h2>Beauty</h2>
+                <h2>Photoshoots</h2>
+            </a>
+        </div>
+        <div class="category category--products">
+            <a class="category__link" href="#">
+                <h2>Products</h2>
             </a>
         </div>
         <div class="category category--wedding">
