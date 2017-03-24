@@ -1,5 +1,15 @@
 @extends('canvas::frontend.layout')
 
+@section('title', \Canvas\Models\Settings::blogTitle())
+
+@section('og-title', \Canvas\Models\Settings::blogTitle())
+@section('twitter-title', \Canvas\Models\Settings::blogTitle())
+@section('og-description', \Canvas\Models\Settings::blogDescription())
+@section('twitter-description', \Canvas\Models\Settings::blogDescription())
+
+@section('og-image', asset('vendor/canvas/assets/images/mad-about-hair.jpg'))
+@section('twitter-image', asset('vendor/canvas/assets/images/mad-about-hair.jpg'))
+
 @section('content')
 
     <div class="container-fluid">

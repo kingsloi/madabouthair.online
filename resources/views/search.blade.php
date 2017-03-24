@@ -1,8 +1,13 @@
 @extends('canvas::frontend.layout')
 
-@section('title')
-Search NWI-Based Hair Stylist Maddie Raspe's Blog
-@stop
+@section('title', "Search NWI-Based Hair Stylist Maddie Raspe's Blog")
+@section('og-title', "Search NWI-Based Hair Stylist Maddie Raspe's Blog")
+@section('twitter-title', "Search NWI-Based Hair Stylist Maddie Raspe's Blog")
+@section('og-description', "Search NWI-Based Hair Stylist Maddie Raspe's Blog")
+@section('twitter-description', "Search NWI-Based Hair Stylist Maddie Raspe's Blog")
+
+@section('og-image', asset('vendor/canvas/assets/images/mad-about-hair.jpg'))
+@section('twitter-image', asset('vendor/canvas/assets/images/mad-about-hair.jpg'))
 
 @section('content')
 

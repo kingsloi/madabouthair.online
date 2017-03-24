@@ -2,6 +2,14 @@
 
 @section('title', 'Contact | ' . \Canvas\Models\Settings::blogTitle())
 
+@section('og-title', 'Contact | ' . \Canvas\Models\Settings::blogTitle())
+@section('twitter-title', 'Contact | ' . \Canvas\Models\Settings::blogTitle())
+@section('og-description', "Whether you're looking for a new hair stylist, need to solve a hair dilemma, or want a consultation about onsite wedding (or other special occasion) hairdressing, contact Maddie Raspe today!")
+@section('twitter-description', "Whether you're looking for a new hair stylist, need to solve a hair dilemma, or want a consultation about onsite wedding (or other special occasion) hairdressing, contact Maddie Raspe today!")
+
+@section('og-image', asset('vendor/canvas/assets/images/mad-about-hair.jpg'))
+@section('twitter-image', asset('vendor/canvas/assets/images/mad-about-hair.jpg'))
+
 @section('content')
 
     <div class="container-fluid">
