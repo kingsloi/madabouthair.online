@@ -85,6 +85,38 @@
         </div>
     </section>
 
+    <section class="quotes">
+
+        <div class="quote-icon"></div>
+
+        <div class="Wallop Wallop--slide">
+            <div class="Wallop-list">
+                <div class="Wallop-item Wallop-item--current">
+                    <div class="quote">
+                        <blockquote class="blockquote">
+                            <p>You have to have fun with hair. It's a great accessory &mdash; play with it</p>
+                            <footer class="blockquote-footer"><cite title="Serge Normant">Serge Normant</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="Wallop-item">
+                    <div class="quote">
+                        <blockquote class="blockquote">
+                            <p>Trust the universe and respect your hair</p>
+                            <footer class="blockquote-footer"><cite title="Bob Marley">Bob Marley</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quotes__pagination">
+                <button class="Wallop-dot Wallop-dot--current">go to item 1</button>
+                <button class="Wallop-dot">go to item 2</button>
+            </div>
+
+        </div>
+
+    </section>
 
     <section class="instagram">
         <div class="instagram__inner">
