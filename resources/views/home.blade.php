@@ -58,9 +58,9 @@
 
 
     <section class="categories">
-        <div class="category category--hair">
+        <div class="category category--wedding">
             <a class="category__link" href="#">
-                <h2>Hair</h2>
+                <h2>Weddings</h2>
             </a>
         </div>
         <div class="category category--diy">
@@ -78,9 +78,9 @@
                 <h2>Products</h2>
             </a>
         </div>
-        <div class="category category--wedding">
+        <div class="category category--hair">
             <a class="category__link" href="#">
-                <h2>Weddings</h2>
+                <h2>Hair</h2>
             </a>
         </div>
     </section>
@@ -107,11 +107,45 @@
                         </blockquote>
                     </div>
                 </div>
+                <div class="Wallop-item">
+                    <div class="quote">
+                        <blockquote class="blockquote">
+                            <p><em>Hairdresser (noun):</em> an artist whose work is always on display.</p>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="Wallop-item">
+                    <div class="quote">
+                        <blockquote class="blockquote">
+                            <p>Shake dreams from your hair&hellip;</p>
+                            <footer class="blockquote-footer"><cite title="Bob Marley">Jim Morrisson</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="Wallop-item">
+                    <div class="quote">
+                        <blockquote class="blockquote">
+                            <p>People will stare. Make it worth their while.</p>
+                            <footer class="blockquote-footer"><cite title="Bob Marley">Harry Winston</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="Wallop-item">
+                    <div class="quote">
+                        <blockquote class="blockquote">
+                            <p>Invest in your hair, it's the crown you never take off.</p>
+                        </blockquote>
+                    </div>
+                </div>
             </div>
 
             <div class="quotes__pagination">
-                <button class="Wallop-dot Wallop-dot--current">go to item 1</button>
-                <button class="Wallop-dot">go to item 2</button>
+                <button class="Wallop-dot Wallop-dot--current">go to quote 1</button>
+                <button class="Wallop-dot">go to quote 2</button>
+                <button class="Wallop-dot">go to quote 3</button>
+                <button class="Wallop-dot">go to quote 4</button>
+                <button class="Wallop-dot">go to quote 5</button>
+                <button class="Wallop-dot">go to quote 6</button>
             </div>
 
         </div>
