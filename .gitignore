@@ -6,7 +6,6 @@
 /storage/*.lock
 /storage/*.index
 /tests/report
-!/vendor/kingsloi/madbouthair-theme/resources/assets
 Thumbs.db
 Homestead.yaml
 Homestead.json

@@ -59,27 +59,27 @@
 
     <section class="categories">
         <div class="category category--wedding">
-            <a class="category__link" href="#">
+            <a class="category__link" href="/blog?tag=weddings">
                 <h2>Weddings</h2>
             </a>
         </div>
         <div class="category category--diy">
-            <a class="category__link" href="#">
+            <a class="category__link" href="/blog?tag=diy">
                 <h2>DIY</h2>
             </a>
         </div>
         <div class="category category--photoshoots">
-            <a class="category__link" href="#">
+            <a class="category__link" href="/blog?tag=photoshoots">
                 <h2>Photoshoots</h2>
             </a>
         </div>
         <div class="category category--products">
-            <a class="category__link" href="#">
+            <a class="category__link" href="/blog?tag=products">
                 <h2>Products</h2>
             </a>
         </div>
         <div class="category category--hair">
-            <a class="category__link" href="#">
+            <a class="category__link" href="/blog?tag=hair">
                 <h2>Hair</h2>
             </a>
         </div>
