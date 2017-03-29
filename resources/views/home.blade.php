@@ -23,6 +23,7 @@
             <img src="{{ $latest->page_image }}">
 
             <div class="latest-post__inner">
+                <small class="from-the-blog">Maddie's latest post</small>
                 <h2><a href="{{ $latest->url() }}">{{ $latest->title }}</a></h2>
 
                 <div class="latest-post__excerpt">
