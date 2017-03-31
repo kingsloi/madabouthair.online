@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', 'PageController@index')->name('canvas.home');
+Route::get('/', 'Frontend\PageController@index')->name('canvas.home');
 
-Route::get('/contact-maddie-raspe', 'PageController@contact');
+Route::get('/blog/post/{slug}', 'Frontend\BlogController@showPost')->name('canvas.blog.post.show');
 
-Route::get('/search', 'PageController@search');
+Route::get('/contact-maddie-raspe', 'Frontend\PageController@contact');
+
+Route::get('/search', 'Frontend\PageController@search');

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Canvas\Models\Post;
+use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
