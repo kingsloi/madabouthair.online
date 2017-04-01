@@ -50,7 +50,7 @@
                 $today = Carbon::now();
                 $since = Carbon::createFromFormat('d/m/Y', config('maddie.professional_since'));
             @endphp
-            <h2><abbr title="Northwest Indiana">NWI</abbr>-based hair stylist Maddie Raspe is a beauty expert with over {{ $today->diffInYears($since) }} years of experience. Maddie is passionate about creating stunning looks and uncovering gorgeous hair.</h2>
+            <h2><abbr title="Northwest Indiana">NWI</abbr>-based hair stylist Maddie Raspe is a beauty expert with over {{ $today->diffInYears($since) }} years of experience. Maddie is passionate about creating stunning looks and uncovering gorgeous hair <a href="/blog/post/hello-world-its-me-maddie" style="font-size:1rem;">&hellip; more</a>.</h2>
 
             <a href="/contact-maddie-raspe" class="btn btn-primary">Schedule an Appointment Today <i class="fa fa-calendar" aria-hidden="true"></i></a>
         </section>
