@@ -16,8 +16,9 @@ class PageController extends Controller
     public function index()
     {
         $latest = Post::orderBy('published_at', 'desc')
-            ->where('published_at', '<=', Carbon::now())
-            ->where('is_published', 1)
+            // ->where('published_at', '<=', Carbon::now())
+            // ->where('is_published', 1)
+            ->where('id', 1)
             ->first();
 
         return view('home', compact('latest'));
