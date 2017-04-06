@@ -40,39 +40,48 @@ class BlogController extends Controller
         }
 
         $images = [];
+        $dom  = new \DOMDocument();
+        $dom->loadHTML($post->content_html);
+        $dom->preserveWhiteSpace = false;
 
-        if($post->tags()->where('title', 'weddings')->exists()){
-            $dom  = new \DOMDocument();
-            $dom->loadHTML($post->content_html);
-            $dom->preserveWhiteSpace = false;
+        foreach ($dom->getElementsByTagName('img') as $id => $image) {
+            $src = $image->getAttribute('src');
 
-            // regex: select images
-            $img = '/<img[^>]*src="([^"]*)[^>]*>/i';
-            // regex: remove emtpy paragraph tags
-            $pattern = "/<p[^>]*><\\/p[^>]*>/";
-            $content_html = preg_replace($img, '', $post->content_html);
-            $content_html = preg_replace($pattern, '', $content_html);
-
-            $post->content_html = $content_html;
-
-            foreach ($dom->getElementsByTagName('img') as $id => $image) {
-                $src = $image->getAttribute('src');
-
-                if(!\file_exists(public_path() . $src)) {
-                    break;
-                }
-
-                $dimensions = \getimagesize(public_path() . $src);
-
-                $images[$id] = [
-                    'src' => $src,
-                    'alt' => $image->getAttribute('alt'),
-                    'width' => $dimensions[0],
-                    'height' => $dimensions[1],
-                ];
+            if(!\file_exists(public_path() . $src)) {
+                break;
             }
+
+            $dimensions = \getimagesize(public_path() . $src);
+
+            $images[$id] = [
+                'src' => $src,
+                'alt' => $image->getAttribute('alt'),
+                'width' => $dimensions[0],
+                'height' => $dimensions[1],
+            ];
         }
 
-        return view($post->layout, compact('post', 'tag', 'slug', 'title', 'user', 'css', 'js', 'socialHeaderIconsUser', 'images'));
+        $content_html = $post->content_html;
+
+        // Remove images for gallery posts
+        if ($post->tags()->whereIn('tag', ['gallery'])->exists()) {
+            $imgRegex = '/<img[^>]*src="([^"]*)[^>]*>/i';
+            $content_html = preg_replace($imgRegex, '', $content_html);
+        }
+
+        // Remove emtpy paragraph tags
+        $emptyParagraphsRegex = "/<p[^>]*><\\/p[^>]*>/";
+        $content_html = preg_replace($emptyParagraphsRegex, '', $content_html);
+        $post->content_html = $content_html;
+
+        // Specific layouts
+        if ($post->tags()->where('tag', 'weddings')->exists()) {
+            $layout = 'canvas::frontend.blog.wedding';
+        }else if ($post->tags()->where('tag', 'photoshoots')->exists()) {
+            $layout = 'canvas::frontend.blog.photoshoot';
+        } else {
+            $layout = $post->layout;
+        }
+        return view($layout, compact('post', 'tag', 'slug', 'title', 'user', 'css', 'js', 'socialHeaderIconsUser', 'images'));
     }
 }
