@@ -32,7 +32,7 @@
 
                 <div class="latest-post__meta post-meta">
                     <span class="post-meta__date">{{ $latest->published_at->diffForHumans() }}</span>
-                    <span class="post-meta__read-time">{{ $latest->readingTime() }} minute read</span>
+                    <span class="post-meta__read-time">{{ (($latest->readingTime() > 1) ? $latest->readingTime() : '1' ) }} minute read</span>
                     @unless ($latest->tags->isEmpty())
                         <span class="post-meta__tags">
                             {!! implode(' ', $latest->tagLinks()) !!}

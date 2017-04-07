@@ -70,7 +70,7 @@ class BlogController extends Controller
         }
 
         // Remove emtpy paragraph tags
-        $emptyParagraphsRegex = "/<p[^>]*><\\/p[^>]*>/";
+        $emptyParagraphsRegex = '/<(\w+)\b(?:\s+[\w\-.:]+(?:\s*=\s*(?:"[^"]*"|"[^"]*"|[\w\-.:]+))?)*\s*\/?>\s*<\/\1\s*>/';
         $content_html = preg_replace($emptyParagraphsRegex, '', $content_html);
         $post->content_html = $content_html;
 
