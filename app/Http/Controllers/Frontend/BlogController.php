@@ -21,22 +21,6 @@ class BlogController extends Controller
     private $images = [];
 
     /**
-     * Image template for outputting gallery images
-     * @param  array $image Array of image src, dimensions, and alt text
-     * @return string
-     */
-    private function imageTemplate($image)
-    {
-        return '<div class="c-gallery-item">' .
-                    '<a href="'. $image['src'] .'" itemprop="contentUrl" data-size="'. $image['width'] .'x'. $image['height'] .'" class="c-gallery-item__inner js-gallery__link">' .
-                        '<figure class="o-image">' .
-                            '<img class="o-image__media" src="'. $image['src'] .'" alt="'. $image['alt'] .'" />' .
-                        '</figure>' .
-                    '</a>' .
-                '</div>';
-    }
-
-    /**
      * Build 'item' templates e.g. DIY post
      * @param  string $content
      * @return string
@@ -73,7 +57,11 @@ class BlogController extends Controller
             $node = $dom->createElement("div");
             $node->setAttribute('class', 'c-gallery-list__item js-gallery__item');
             $frag = $dom->createDocumentFragment();
-            $frag->appendXML($this->imageTemplate($this->images[$id]));
+            $imageHtml = view('canvas::frontend.blog.partials.image', [
+                'hideTopLevelDiv' => true,
+                'image' => $this->images[$id]
+            ])->render();
+            $frag->appendXML($imageHtml);
             $node->appendChild($frag);
             $image->parentNode->replaceChild($node, $image);
         }
@@ -118,7 +106,7 @@ class BlogController extends Controller
         foreach ($dom->getElementsByTagName('img') as $id => $image) {
             $src = $image->getAttribute('src');
 
-            if(!\file_exists(public_path() . $src)) {
+            if (!\file_exists(public_path() . $src)) {
                 break;
             }
 
@@ -178,9 +166,9 @@ class BlogController extends Controller
         // Tag specific
         if ($post->tags()->where('tag', 'weddings')->exists()) {
             $layout = 'canvas::frontend.blog.wedding';
-        } else if ($post->tags()->where('tag', 'photoshoots')->exists()) {
+        } elseif ($post->tags()->where('tag', 'photoshoots')->exists()) {
             $layout = 'canvas::frontend.blog.photoshoot';
-        } else if ($post->tags()->where('tag', 'diy')->exists()) {
+        } elseif ($post->tags()->where('tag', 'diy')->exists()) {
             $contentHtml = $this->buildListTemplate($contentHtml);
             $layout = 'canvas::frontend.blog.diy';
         } else {
