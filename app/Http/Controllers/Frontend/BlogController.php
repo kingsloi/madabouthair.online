@@ -100,7 +100,7 @@ class BlogController extends Controller
     {
         $images = [];
         $dom  = new \DOMDocument();
-        $dom->loadHTML($content);
+        @$dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $dom->preserveWhiteSpace = false;
 
         foreach ($dom->getElementsByTagName('img') as $id => $image) {

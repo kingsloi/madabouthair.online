@@ -14,7 +14,7 @@
 
     <div class="container-fluid">
 
-        <section class="latest-post"
+        <section class="latest-post latest-post-id--{{ $latest->id }} latest-post-slug--{{ $latest->slug }}"
             @if ($latest->page_image)
                 style="background-image: url({{ $latest->page_image }})";
             @endif
