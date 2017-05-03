@@ -20,21 +20,52 @@ class BlogController extends Controller
      */
     private $images = [];
 
+    private function preprendListNumbering($content)
+    {
+        $i = 1;
+        $dom = new \DOMDocument();
+        @$dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $lists = $dom->getElementsByTagName('ol');
+
+        foreach ($lists as $listId => $list) {
+            $listItems = $list->getElementsByTagName('li');
+            $i = 1;
+            foreach ($listItems as $id => $listItem) {
+                $image = $listItem->getElementsByTagName('img');
+                if (! $image->length) {
+                    $nodeValue = $listItem->nodeValue;
+                    $listItem->nodeValue = '';
+                    $listItem->appendChild($dom->createCDATASection ( '<span class="step-count">Step '. $i . ':</span> '.$nodeValue ));
+                } else {
+                    $span = $dom->createElement('span', 'Step ' . $i . ': ');
+                    $span->setAttribute('class', 'step-count');
+                    $listItem->insertBefore($span, $listItem->firstChild);
+                }
+
+                $i++;
+            }
+        }
+
+        return $dom->saveHTML();
+    }
+
     /**
-     * Build 'item' templates e.g. DIY post
+     * set a class on an <li> if it contains an image
      * @param  string $content
      * @return string
      */
-    private function buildListTemplate($content)
+    private function setListImagesClasses($content)
     {
         $dom = new \DOMDocument();
         @$dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $listItems = $dom->getElementsByTagName('li');
 
-        foreach ($listItems as $id => $list) {
-            $image = $list->getElementsByTagName('img');
+        foreach ($listItems as $id => $listItem) {
+            $image = $listItem->getElementsByTagName('img');
             if ($image->length) {
-                $list->setAttribute('class', 'item--has-image');
+                $listItem->setAttribute('class', 'item--has-image item--images-' . $image->length);
+            } else {
+                $listItem->setAttribute('class', 'item--has-no-image item--images-0');
             }
         }
 
@@ -168,8 +199,12 @@ class BlogController extends Controller
             $layout = 'canvas::frontend.blog.wedding';
         } elseif ($post->tags()->where('tag', 'photoshoots')->exists()) {
             $layout = 'canvas::frontend.blog.photoshoot';
+        } elseif ($post->tags()->where('tag', 'tutorial')->exists()) {
+            $contentHtml = $this->setListImagesClasses($contentHtml);
+            $contentHtml = $this->preprendListNumbering($contentHtml);
+            $layout = 'canvas::frontend.blog.tutorial';
         } elseif ($post->tags()->where('tag', 'diy')->exists()) {
-            $contentHtml = $this->buildListTemplate($contentHtml);
+            $contentHtml = $this->setListImagesClasses($contentHtml);
             $layout = 'canvas::frontend.blog.diy';
         } else {
             $layout = $post->layout;
