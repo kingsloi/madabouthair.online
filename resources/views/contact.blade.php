@@ -47,7 +47,7 @@
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </div>
                                 <div class="contact__title">
-                                    madchambers32@yahoo.com
+                                    maddie.raspe@gmail.com
                                 </div>
                             </a>
                         </li>
