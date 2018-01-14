@@ -50,7 +50,13 @@
                 $today = Carbon::now();
                 $since = Carbon::createFromFormat('d/m/Y', config('maddie.professional_since'));
             @endphp
-            <h2><abbr title="Northwest Indiana">NWI</abbr>-based hair stylist Maddie Raspe is a beauty expert with over {{ $today->diffInYears($since) }} years of experience. Maddie is passionate about creating stunning looks and uncovering gorgeous hair<a href="/blog/post/hello-world-its-me-maddie" style="font-size:1rem;">&hellip; more.</a></h2>
+
+            <h2>Based in <abbr title="Northwest Indiana">NWI</abbr>, Freelance hair stylist Maddie Raspe is a hair artist, specializing in bridal and special event updos, along with cuts &amp; colors.
+
+
+
+
+                {{-- {{ $today->diffInYears($since) }} years of experience. --}} Maddie is passionate about creating stunning looks and making people feel their best <a href="/blog/post/hello-world-its-me-maddie" style="font-size:1rem;">&hellip; more.</a></h2>
 
             <a href="/contact-maddie-raspe" class="btn btn-primary">Schedule an Appointment Today <i class="fa fa-calendar" aria-hidden="true"></i></a>
         </section>
@@ -64,24 +70,14 @@
                 <h2>Weddings</h2>
             </a>
         </div>
-        <div class="category category--diy">
-            <a class="category__link" href="/blog?tag=diy">
-                <h2>DIY</h2>
-            </a>
-        </div>
         <div class="category category--photoshoots">
             <a class="category__link" href="/blog?tag=photoshoots">
                 <h2>Photoshoots</h2>
             </a>
         </div>
-        <div class="category category--products">
-            <a class="category__link" href="/blog?tag=products">
-                <h2>Products</h2>
-            </a>
-        </div>
         <div class="category category--hair">
-            <a class="category__link" href="/blog?tag=hair">
-                <h2>Hair</h2>
+            <a class="category__link" href="/blog?tag=salon">
+                <h2>Salon</h2>
             </a>
         </div>
     </section>
