@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="mailto:madchambers32@yahoo.com">
+                            <a href="mailto:maddie.raspe@gmail.com">
                                 <div class="contact__icon">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </div>
